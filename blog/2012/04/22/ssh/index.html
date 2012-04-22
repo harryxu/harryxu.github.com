@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>harry's drafts</title>
+  <title>ssh - harry's drafts</title>
   <meta name="author" content="harryxu">
 
   
-  <meta name="description" content="编译Vim hg clone https://vim.googlecode.com/hg/ ~/vim cd ~/vim
-./configure --with-features=huge --enable-luainterp \ --enable-perlinterp --enable- &hellip;">
+  <meta name="description" content="ssh链接慢的解决 有时候链接ssh的时候会需要很长时间，差不多要20秒以上，但是一旦连上登陆后的操作就会很快了。 要解决这个问题只需要打开/etc/ssh/sshd_config这个文件，加入 UseDNS no 如果已经有UseDNS yes了，那么将yes改为no即可 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://harryxu.github.com">
+  <link rel="canonical" href="http://harryxu.github.com/blog/2012/04/22/ssh">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -61,68 +60,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2012/04/22/vim/">Vim</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-04-22T16:38:00+08:00" pubdate data-updated="true">Apr 22<span>nd</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h1>编译Vim</h1>
-
-<pre><code>hg clone https://vim.googlecode.com/hg/ ~/vim 
-cd ~/vim
-./configure --with-features=huge --enable-luainterp \
-            --enable-perlinterp --enable-pythoninterp \
-            --enable-rubyinterp --enable-gui=gtk2 \
-            --disable-largefile
-make
-sudo make install
-</code></pre>
-
-<p><strong>参考</strong></p>
-
-<ul>
-<li><a href="http://kresimirbojcic.com/2011/05/14/installing-command-t-ubunutu-11.04-ruby-1.9.2.html">Installing Command-T Vim plugin on Ubuntu 11.04 with Ruby 1.9.2</a></li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/04/22/ssh/">Ssh</a></h1>
+      <h1 class="entry-title">Ssh</h1>
     
     
       <p class="meta">
@@ -145,7 +88,7 @@ sudo make install
   </header>
 
 
-  <div class="entry-content"><h1>ssh链接慢的解决</h1>
+<div class="entry-content"><h1>ssh链接慢的解决</h1>
 
 <p>有时候链接ssh的时候会需要很长时间，差不多要20秒以上，但是一旦连上登陆后的操作就会很快了。</p>
 
@@ -196,22 +139,16 @@ sudo make install
 </ul>
 
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/04/22/selenium/">Selenium</a></h1>
-    
-    
-      <p class="meta">
-        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">harryxu</span></span>
+
+      
 
 
 
@@ -223,29 +160,34 @@ sudo make install
   
 
 
-<time datetime="2012-04-22T15:57:00+08:00" pubdate data-updated="true">Apr 22<span>nd</span>, 2012</time>
-        
-      </p>
+<time datetime="2012-04-22T16:00:00+08:00" pubdate data-updated="true">Apr 22<span>nd</span>, 2012</time>
+      
+
+
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><h1>Chrome 支持</h1>
-
-<p>Linux上让selenium使用chrome要先下载chromedriver，下载对应的版本后解压放到/usr/bin目录里。</p>
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://harryxu.github.com/blog/2012/04/22/ssh/" data-via="" data-counturl="http://harryxu.github.com/blog/2012/04/22/ssh/" >Tweet</a>
+  
+  
+  
 </div>
-  
-  
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/04/22/selenium/" title="Previous Post: selenium">&laquo; selenium</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/04/22/vim/" title="Next Post: Vim">Vim &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
 
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
 </div>
+
 <aside class="sidebar">
   
     <section>
@@ -274,6 +216,7 @@ sudo make install
 
   
 </aside>
+
 
     </div>
   </div>

@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>harry's drafts</title>
+  <title>Vim - harry's drafts</title>
   <meta name="author" content="harryxu">
 
   
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://harryxu.github.com">
+  <link rel="canonical" href="http://harryxu.github.com/blog/2012/04/22/vim">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -61,15 +61,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2012/04/22/vim/">Vim</a></h1>
+      <h1 class="entry-title">Vim</h1>
     
     
       <p class="meta">
@@ -92,7 +89,7 @@
   </header>
 
 
-  <div class="entry-content"><h1>编译Vim</h1>
+<div class="entry-content"><h1>编译Vim</h1>
 
 <pre><code>hg clone https://vim.googlecode.com/hg/ ~/vim 
 cd ~/vim
@@ -111,107 +108,16 @@ sudo make install
 </ul>
 
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/04/22/ssh/">Ssh</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
   
 
+<span class="byline author vcard">Posted by <span class="fn">harryxu</span></span>
 
-<time datetime="2012-04-22T16:00:00+08:00" pubdate data-updated="true">Apr 22<span>nd</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h1>ssh链接慢的解决</h1>
-
-<p>有时候链接ssh的时候会需要很长时间，差不多要20秒以上，但是一旦连上登陆后的操作就会很快了。</p>
-
-<p>要解决这个问题只需要打开<code>/etc/ssh/sshd_config</code>这个文件，加入</p>
-
-<pre><code>UseDNS no
-</code></pre>
-
-<p>如果已经有<code>UseDNS yes</code>了，那么将<code>yes</code>改为<code>no</code>即可</p>
-
-<h1>chroot限制sftp用户访问的目录</h1>
-
-<p>需求：让某些用户只能通过sftp登陆到服务器，并且限制用户可访问的目录，不让他访问所限制的目录以外的目录。</p>
-
-<p>打开<code>/etc/ssh/sshd_config</code>文件，注释掉下面这行</p>
-
-<pre><code>#Subsystem sftp /usr/lib/openssh/sftp-server 
-</code></pre>
-
-<p>然后加入</p>
-
-<pre><code>Subsystem sftp internal-sftp
-</code></pre>
-
-<p>然后在文件<strong>底部</strong>加入</p>
-
-<pre><code>Match group sftponly
-        ChrootDirectory /home/%u
-        X11Forwarding no
-        AllowTcpForwarding no
-        ForceCommand internal-sftp
-</code></pre>
-
-<p><code>Match group</code>表示匹配到的用户组，也可以用<code>Match user</code>或<code>Match ip</code>。</p>
-
-<p><code>ChrootDirectory</code>后面的参数表示要限定的用户目录，<code>%u</code>代表用户名，<code>%h</code>代表家。</p>
-
-<p><strong>注意</strong> chroot的目录的owner必须是root，不然用户连接的时候会出现 Connection reset 的错误。</p>
-
-<p>然后将需要限制的用户加到<code>sftponly</code>这个组就可以了。</p>
-
-<p><strong>参考</strong></p>
-
-<ul>
-<li><a href="http://prefetch.net/blog/index.php/2009/03/15/chrooting-users-with-openssh/">Chroot’ing users with openssh</a></li>
-<li><a href="http://www.debian-administration.org/articles/590">OpenSSH SFTP chroot() with ChrootDirectory</a></li>
-<li><a href="http://rainbird.blog.51cto.com/211214/275162/">说说sftp的chroot</a></li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/04/22/selenium/">Selenium</a></h1>
-    
-    
-      <p class="meta">
-        
 
 
 
@@ -223,29 +129,32 @@ sudo make install
   
 
 
-<time datetime="2012-04-22T15:57:00+08:00" pubdate data-updated="true">Apr 22<span>nd</span>, 2012</time>
-        
-      </p>
+<time datetime="2012-04-22T16:38:00+08:00" pubdate data-updated="true">Apr 22<span>nd</span>, 2012</time>
+      
+
+
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><h1>Chrome 支持</h1>
-
-<p>Linux上让selenium使用chrome要先下载chromedriver，下载对应的版本后解压放到/usr/bin目录里。</p>
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://harryxu.github.com/blog/2012/04/22/vim/" data-via="" data-counturl="http://harryxu.github.com/blog/2012/04/22/vim/" >Tweet</a>
+  
+  
+  
 </div>
-  
-  
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/04/22/ssh/" title="Previous Post: ssh">&laquo; ssh</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
 </div>
+
 <aside class="sidebar">
   
     <section>
@@ -274,6 +183,7 @@ sudo make install
 
   
 </aside>
+
 
     </div>
   </div>
