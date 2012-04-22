@@ -1,0 +1,11 @@
+---
+layout: post
+title: "selenium"
+date: 2012-04-22 15:57
+comments: true
+categories: 
+---
+
+#Chrome 支持
+
+Linux上让selenium使用chrome要先下载chromedriver，下载对应的版本后解压放到/usr/bin目录里。

@@ -1,0 +1,51 @@
+---
+layout: post
+title: "ssh"
+date: 2012-04-22 16:00
+comments: true
+categories: 
+---
+
+#ssh链接慢的解决
+
+有时候链接ssh的时候会需要很长时间，差不多要20秒以上，但是一旦连上登陆后的操作就会很快了。
+
+要解决这个问题只需要打开`/etc/ssh/sshd_config`这个文件，加入
+
+    UseDNS no
+
+如果已经有`UseDNS yes`了，那么将`yes`改为`no`即可
+
+#chroot限制sftp用户访问的目录
+
+需求：让某些用户只能通过sftp登陆到服务器，并且限制用户可访问的目录，不让他访问所限制的目录以外的目录。
+
+打开`/etc/ssh/sshd_config`文件，注释掉下面这行
+
+    #Subsystem sftp /usr/lib/openssh/sftp-server 
+
+然后加入
+
+    Subsystem sftp internal-sftp
+
+然后在文件**底部**加入
+
+    Match group sftponly
+            ChrootDirectory /home/%u
+            X11Forwarding no
+            AllowTcpForwarding no
+            ForceCommand internal-sftp
+
+`Match group`表示匹配到的用户组，也可以用`Match user`或`Match ip`。
+
+`ChrootDirectory`后面的参数表示要限定的用户目录，`%u`代表用户名，`%h`代表家。
+
+**注意** chroot的目录的owner必须是root，不然用户连接的时候会出现 Connection reset 的错误。
+
+然后将需要限制的用户加到`sftponly`这个组就可以了。
+
+**参考**
+
+ * [Chroot’ing users with openssh](http://prefetch.net/blog/index.php/2009/03/15/chrooting-users-with-openssh/)
+ * [OpenSSH SFTP chroot() with ChrootDirectory](http://www.debian-administration.org/articles/590)
+ * [说说sftp的chroot](http://rainbird.blog.51cto.com/211214/275162/)
